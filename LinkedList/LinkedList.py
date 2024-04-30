@@ -205,28 +205,29 @@ class LinkdedList:
 v = LinkdedList()
 
 v.insert_head("t")
-v.append("h")
-v.append("e")
-v.append("*")
-v.append("/")
-v.append("s")
-v.append("k")
-v.append("y")
-v.append("*")
-v.append("is")
-v.append("/")
-v.append("/")
-v.append("b")
-v.append("l")
-v.append("u")
-v.append("e")
-
 print(v)
+# v.append("h")
+# v.append("e")
+# v.append("*")
+# v.append("/")
+# v.append("s")
+# v.append("k")
+# v.append("y")
+# v.append("*")
+# v.append("is")
+# v.append("/")
+# v.append("/")
+# v.append("b")
+# v.append("l")
+# v.append("u")
+# v.append("e")
 
-v.change_Sentence()
+# print(v)
+
+# v.change_Sentence()
 
 
-print(v)
+# print(v)
 
 
 
