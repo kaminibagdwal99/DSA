@@ -1,6 +1,6 @@
 """in monkey sort  suppose there are  10 cards and a monkey is aked to sort those card , 
 he will flips the card in air then check if cards are not sorted he again throws the card and 
-checkk and continue"""
+check and continue"""
 
 
 import random

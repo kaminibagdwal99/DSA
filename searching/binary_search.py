@@ -1,4 +1,7 @@
-"""BS have a sorted array TC : nlogn+logn ammortaziation concept for k is very """
+"""
+we need a sorted array for binary search.
+BS have a sorted array TC : nlogn+logn 
+ammortaziation concept for k is very """
 
 def binary(arr, low, high, item):
 
@@ -13,7 +16,23 @@ def binary(arr, low, high, item):
     else:
         return -1
 
+def binary_loop(arr,item):
+    low = 0
+    high = len(arr)-1
 
-arr=[12,14,16,28,29,31,67]
-item = 31
+    while low<= high:
+        mid= (low+high)//2
+        if arr[mid] ==item:
+            return mid
+        elif arr[mid]>item:
+            high = mid-1
+        else:
+            low = mid+1
+
+
+arr=[5]
+item = 5
 print(binary(arr,0,len(arr)-1,item))
+print(binary_loop(arr,item))
+
+
