@@ -7,6 +7,20 @@ class NodeTree:
         self.right = right
         self.left = left
 
+    def diameter(self):
+        res = [0]
+        def dfs(self):
+            if not self:
+                return -1
+
+            left = dfs(self.left)
+            right = dfs(self.right)
+
+            res[0] = max(res[0], 2 + left + right)
+            return 1 + max(left, right)
+        dfs(self)
+        return res[0]
+
 a = NodeTree(5)
 a.left = NodeTree(2)
 a.right = NodeTree(3)
@@ -23,4 +37,6 @@ def print_tree(node, level=0):
         print(' ' * 8 * level + '->', node.val)
         print_tree(node.right, level + 1)
 
-print_tree(a)
+# print_tree(a)
+p =a.diameter()
+print(p)

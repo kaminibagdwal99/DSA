@@ -12,5 +12,5 @@ def duplicate(nums):
         if slow == slow1:
             return slow
 
-a= duplicate([1,2,3,2,4])
+a =duplicate([1,2,3,4,2,5])
 print(a)
