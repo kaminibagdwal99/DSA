@@ -1,5 +1,7 @@
 """stack is DS , Lifo (last in first out) . Implement Stack using Linked List opeartion ( top and bottom )
-top( head) : push insert item from top, pop item from top,peak : to check the topmost item, is_empty : tell if stack is empty
+top( head) : push insert item from top, pop item from top,
+peak : to check the topmost item, 
+is_empty : tell if stack is empty
 so basically a stack using LL is a LL where operation can be only only from head"""
 
 
@@ -85,6 +87,7 @@ def text_editor(input, pattern):
         s.push(i)
     
     for i in pattern:
+        
         
             if i =="u":
                 data = s.pop()

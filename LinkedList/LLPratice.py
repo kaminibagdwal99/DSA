@@ -1,54 +1,99 @@
 class Node:
-    def __init__(self, val = 0):
+    def __init__(self, val=0):
         self.val = val
         self.next = None
 
 
+class Stack:
+    def __init__(self):
+        self.top = None
 
-a = Node(0)
-a.next = Node(1)
-a.next.next = Node(2)
-a.next.next.next = Node(3)
+    def is_empty(self):
+        return self.top == None
 
+    def push(self, val):
+        new_node = Node(val)
+        new_node.next = self.top
+        self.top = new_node
 
+    def tranverse(self):
+        temp = self.top
+        while temp:
+            print(temp.val,"->", end = "")
+            temp = temp.next
+        print(None)
 
-b = Node(1)
-b.next = Node(5)
-b.next.next = Node(4)
+    def pop(self):
 
-def printll(head):
-    cur = head
-    while cur:
-        print(str(cur.val) +"->", end=" ")
-        cur = cur.next
-    print()
+        if(self.is_empty()):
+            return "Stack UNderFlow"
+        else:
+
+            pop_value = self.top.val
+            self.top= self.top.next
+            return pop_value
+
+    def peek(self):
+        if(self.is_empty()):
+            return "Stack UNderFlow"
+        return self.top
+
+def reverse(str):
+    a = Stack()
+    for i in str:
+        a.push(i)
+
+    result = ""
+    while not a.is_empty():
+        result +=a.pop()
     
-    
-def add(head, head2):
-    dummy = Node()
-    cur = dummy
-    carry =0
-
-    while head or head2 or carry:
-        if head:
-            carry += head.val
-            head = head.next
-        if head2:
-            carry += head2.val
-            head2 = head2.next
-
-        cur.next =Node(carry %10)
-        cur = cur.next
-        carry = carry//10
-
-    return dummy.next
-
- 
+    return result
 
 
 
-printll(a)
-printll(b)
-v = add(a,b)
-printll(v)
 
+# print(reverse("hello"))
+
+def text_editor(str, pattern):
+    s=Stack()
+    v = Stack()
+
+    for i in str:
+        s.push(i)
+
+    for i in pattern:
+        if i =="u":
+            value =s.pop()
+            v.push(value)
+        elif i =="r":
+            value = v.pop()
+            s.push(value)
+
+    result = ""
+    while (not s.is_empty()):
+        result=s.pop() +result
+    return result
+
+print(text_editor("hello","uuru"))
+
+
+l =[
+    [0,0,1,1],
+    [0,0,1,0],
+    [0,0,1,1],
+    [0,0,1,0]
+]
+
+
+
+
+
+# a = Stack()
+
+# a.push(8)
+# a.push(7)
+# a.push(6)
+# a.tranverse()
+# print(a.delete_from_head())
+# a.tranverse()
+# print(a.peek())
