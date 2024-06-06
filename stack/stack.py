@@ -101,7 +101,7 @@ def text_editor(input, pattern):
         result = s.pop()+result 
     return result
 
-# print(text_editor("hello","uuuru"))
+print(text_editor("hello","uuuru"))
 
 
 #celebrity Problem
@@ -111,8 +111,8 @@ def text_editor(input, pattern):
 l =[
     [0,0,1,1],
     [0,0,1,0],
-    [0,0,1,1],
-    [0,0,1,0]
+    [1,0,0,1],
+    [0,0,0,0]
 ]
 
 def find_celebrity(L):
