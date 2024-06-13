@@ -83,3 +83,18 @@
 
 
 
+def minMovesToSeat( seats, students):  
+    print(sorted(seats) )
+    x =  zip(sorted(seats),sorted(students))
+    res = 0
+    for i,j in x:
+        res = res +abs(j-i)
+    return res 
+
+        
+seats = [12,14,19,19,12]
+students=[19,2,17,20,7]              
+                
+
+
+print(minMovesToSeat(seats,students))

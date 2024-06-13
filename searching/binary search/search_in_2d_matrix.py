@@ -31,4 +31,4 @@ def search_in_2d(arr, target):
 
 
 arr = [[1,2,4],[12,13,21],[23,33,34]]
-print(search_in_2d(arr, 3))
+print(search_in_2d(arr, 4))

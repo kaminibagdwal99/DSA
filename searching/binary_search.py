@@ -30,8 +30,8 @@ def binary_loop(arr,item):
             low = mid+1
 
 
-arr=[5]
-item = 5
+arr=[1,2,3,4,6,8,9]
+item = 6
 print(binary(arr,0,len(arr)-1,item))
 print(binary_loop(arr,item))
 
