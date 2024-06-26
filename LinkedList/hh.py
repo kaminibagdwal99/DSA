@@ -83,18 +83,35 @@
 
 
 
-def minMovesToSeat( seats, students):  
-    print(sorted(seats) )
-    x =  zip(sorted(seats),sorted(students))
-    res = 0
-    for i,j in x:
-        res = res +abs(j-i)
-    return res 
+# def minMovesToSeat( seats, students):  
+#     print(sorted(seats) )
+#     x =  zip(sorted(seats),sorted(students))
+#     res = 0
+#     for i,j in x:
+#         res = res +abs(j-i)
+#     return res 
 
         
-seats = [12,14,19,19,12]
-students=[19,2,17,20,7]              
+# seats = [12,14,19,19,12]
+# students=[19,2,17,20,7]              
                 
 
 
-print(minMovesToSeat(seats,students))
+# print(minMovesToSeat(seats,students))
+
+
+def minIncrementForUnique( nums):
+    nums.sort()
+    moves =0
+    for i in range(1,len(nums)):
+        if nums[i]<=nums[i-1]:
+            increment = nums[i - 1] + 1 - nums[i]  # Calculate the needed increment
+            nums[i] += increment  # Increment the current element
+            moves += increment  # Add to the tota
+    return moves
+                
+                
+
+
+nums = [1,2,6,6,6]
+print(minIncrementForUnique(nums))
