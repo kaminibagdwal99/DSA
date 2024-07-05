@@ -15,10 +15,13 @@ class TreeNode:
         return dfs(self)[0]
 
 
-a = TreeNode(3)
-a.left = TreeNode(9)
-a.right = TreeNode(20)
-a.right.left = TreeNode(15)
+node = TreeNode(1)
+node.right = TreeNode(3)
+node.left = TreeNode(2)
+node.left.left = TreeNode(4)
+node.left.right = TreeNode(5)
+node.right.right = TreeNode(7)
+node.right.right.left =TreeNode(6)
 
-v =a.balanced()
+v =node.balanced()
 print(v)

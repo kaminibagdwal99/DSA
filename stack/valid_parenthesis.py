@@ -22,6 +22,9 @@ def is_balanced(open, closed):
 expression = "{(a+b)+(c+d)}"
 
 print(valid_parenthesis(expression))
+
+
+
     
 
 

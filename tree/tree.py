@@ -66,7 +66,7 @@ node.right.left =TreeNode(6)
 
 
 def print_tree(node, level=0):
-    if node is not None:
+    if node :
         print_tree(node.left, level + 1)
         print(' ' * 4 * level + '->', node.val)
         print_tree(node.right, level + 1)

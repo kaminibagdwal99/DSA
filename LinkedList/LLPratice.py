@@ -1,99 +1,79 @@
-class Node:
-    def __init__(self, val=0):
-        self.val = val
+class Node :
+    def __init__(self, value=0):
+        self.value = value
         self.next = None
 
 
-class Stack:
-    def __init__(self):
-        self.top = None
+def print_LL(head):
+    while head:
+        print( head.value ,"=>", end=" ")
+        head = head.next
+    print("None")
 
-    def is_empty(self):
-        return self.top == None
+def add_two_number(list1):
+    slow,fast = list1, list1
 
-    def push(self, val):
-        new_node = Node(val)
-        new_node.next = self.top
-        self.top = new_node
+    while fast :
+        slow = slow.next
+        fast= fast.next.next
+        if slow ==fast:
+            return True
+    return False
 
-    def tranverse(self):
-        temp = self.top
-        while temp:
-            print(temp.val,"->", end = "")
-            temp = temp.next
-        print(None)
 
-    def pop(self):
-
-        if(self.is_empty()):
-            return "Stack UNderFlow"
-        else:
-
-            pop_value = self.top.val
-            self.top= self.top.next
-            return pop_value
-
-    def peek(self):
-        if(self.is_empty()):
-            return "Stack UNderFlow"
-        return self.top
-
-def reverse(str):
-    a = Stack()
-    for i in str:
-        a.push(i)
-
-    result = ""
-    while not a.is_empty():
-        result +=a.pop()
     
-    return result
+
+        
+
+
+a = Node(1)
+b = Node(2)
+c = Node(3)
+
+
+
+d = Node(6)
+e  = Node(4)
+f = Node(5)
+
+a.next = b
+b.next  = c
+
+c.next =d
+d.next = e
+e.next = f
 
 
 
 
-# print(reverse("hello"))
+# print_LL(a)
 
-def text_editor(str, pattern):
-    s=Stack()
-    v = Stack()
-
-    for i in str:
-        s.push(i)
-
-    for i in pattern:
-        if i =="u":
-            value =s.pop()
-            v.push(value)
-        elif i =="r":
-            value = v.pop()
-            s.push(value)
-
-    result = ""
-    while (not s.is_empty()):
-        result=s.pop() +result
-    return result
-
-print(text_editor("hello","uuru"))
+# z =add_two_number(a)
+# print(z)
 
 
-l =[
-    [0,0,1,1],
-    [0,0,1,0],
-    [0,0,1,1],
-    [0,0,1,0]
-]
+def duplicate(nums):
+    slow , fast = 0,0
+
+    while True:
+        slow = nums[slow]
+        fast = nums[nums[fast]]
+
+        if slow == fast:
+            break
+    slow1 = 0
+
+    while True:
+        slow1 = nums[slow1]
+        slow = nums[slow]
+
+        if slow == slow1:
+            return slow1
+        
+    
+        
 
 
+a =duplicate([1,2,3,4,2,5])
+print(a)
 
-
-
-# a = Stack()
-
-# a.push(8)
-# a.push(7)
-# a.push(6)
-# a.tranverse()
-# print(a.delete_from_head())
-# a.tranverse()
-# print(a.peek())

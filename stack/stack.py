@@ -1,8 +1,11 @@
-"""stack is DS , Lifo (last in first out) . Implement Stack using Linked List opeartion ( top and bottom )
+"""stack is DS , Lifo (last in first out) . Implement Stack using Linked List opeartion
+ ( top and bottom )
 top( head) : push insert item from top, pop item from top,
 peak : to check the topmost item, 
 is_empty : tell if stack is empty
-so basically a stack using LL is a LL where operation can be only only from head"""
+so basically a stack using LL is a LL where operation can be only only from head
+
+if we implement ll using python list we can use only append and pop """
 
 
 class Node:
@@ -111,8 +114,8 @@ print(text_editor("hello","uuuru"))
 l =[
     [0,0,1,1],
     [0,0,1,0],
-    [1,0,0,1],
-    [0,0,0,0]
+    [0,0,0,0],
+    [0,0,1,0]
 ]
 
 def find_celebrity(L):
@@ -139,7 +142,7 @@ def find_celebrity(L):
     return ( "celebrity is", celeb)
     
 
-# print(find_celebrity(l))
+print(find_celebrity(l))
 
 #balanced parathesis
 
