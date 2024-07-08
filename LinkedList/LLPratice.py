@@ -10,15 +10,28 @@ def print_LL(head):
         head = head.next
     print("None")
 
-def add_two_number(list1):
-    slow,fast = list1, list1
+def add_two_number(list1,k):
+    cur = list1
 
-    while fast :
-        slow = slow.next
-        fast= fast.next.next
-        if slow ==fast:
-            return True
-    return False
+    if not cur  or k == 0:
+        return cur
+    len = 1
+
+    while cur.next :
+        len = len+1
+        cur = cur.next
+
+    cur.next = list1
+
+    k=k %len
+    end = len-k
+
+    for _ in range(end):
+        cur=cur.next
+
+    list1 = cur.next
+    cur.next = None
+    return list1
 
 
     
@@ -38,7 +51,6 @@ f = Node(5)
 
 a.next = b
 b.next  = c
-
 c.next =d
 d.next = e
 e.next = f
@@ -46,34 +58,41 @@ e.next = f
 
 
 
-# print_LL(a)
+print_LL(a)
 
-# z =add_two_number(a)
-# print(z)
+z =add_two_number(a, k=3)
+print_LL(z)
 
 
-def duplicate(nums):
-    slow , fast = 0,0
 
-    while True:
-        slow = nums[slow]
-        fast = nums[nums[fast]]
+from collections import OrderedDict
 
-        if slow == fast:
-            break
-    slow1 = 0
-
-    while True:
-        slow1 = nums[slow1]
-        slow = nums[slow]
-
-        if slow == slow1:
-            return slow1
+class LRUCache:
+    def __init__(self,capacity) :
         
+        self.capacity = capacity
+        self.cache = OrderedDict()
+
+    def get(self,key):
+        if key in self.cache:
+            self.cache.move_to_end(key)
+            return self.cache[key]
+        return -1
     
-        
+    def put(self, key, value):
+        if key in self.cache:
+            self.cache.move_to_end(key)
+        elif self.capacity <= len(self.cache):
+            self.cache.popitem(last = False)
+
+        self.cache[key]=value  
 
 
-a =duplicate([1,2,3,4,2,5])
-print(a)
 
+
+obj = LRUCache(2)
+obj.put(1,1)
+obj.put(2,2)
+print(obj.get(1))
+obj.put(3,3)
+print(obj.get(2))
