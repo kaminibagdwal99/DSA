@@ -6,14 +6,24 @@ class TreeNode:
 
 from collections import deque
 
-def balanced(root):
-    def dfs(root):
-        if not root : return [True,0]
-        left,right = dfs(root.left), dfs(root.right)
 
-        balanced = left[0] and right[0] and abs(left[1]-right[1]<=1)
-        return [balanced, 1+max(left[1], right[1])]
-    return dfs(root)[0]
+def BFS(node):
+    res = []
+    q = deque([node])
+    while q:
+        lorder = len(q)
+        lnode=[]
+        for _ in range(lorder):
+            node = q.popleft()
+            lnode.append(node.val)
+
+            if node.left:
+                q.append(node.left)
+
+            if node.right:
+                q.append(node.right)
+        res.append(lnode)
+    return res
     
     
 
@@ -34,7 +44,8 @@ node.left = TreeNode(2)
 node.left.left = TreeNode(4)
 node.left.right = TreeNode(5)
 node.right.right = TreeNode(7)
-node.right.right.left =TreeNode(6)
+node.right.left =TreeNode(6)
 
-a = balanced(node)
+print_tree(node)
+a = BFS(node)
 print(a)

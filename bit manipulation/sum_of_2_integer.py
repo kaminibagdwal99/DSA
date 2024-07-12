@@ -23,7 +23,8 @@ class Solution:
     def getSum(self, a: int, b: int) -> int:
         res = 0
 
-        for i in r
+        for i in a:
+            pass
 
 a = Solution()
 print(a.getSum(a = 1, b = 2))
