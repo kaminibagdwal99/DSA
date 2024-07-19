@@ -36,6 +36,13 @@ class TreeNode:
         self.right = right
 class Solution:
     def isSameTree(self, p , q ) -> bool:
+        if not p and not q :
+            return True
+        
+        if not p or not q or p.val !=q.val:
+            return False
+        
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         
 
 
@@ -44,8 +51,8 @@ node.right = TreeNode(3)
 node.left = TreeNode(2)
 
 node2 = TreeNode(1)
-node2.right = TreeNode(3)
-node2.left = TreeNode(2)
+node2.right = TreeNode(2)
+node2.left = TreeNode(3)
 
 
 a = Solution()

@@ -1,5 +1,6 @@
 """
-Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+Given an integer array nums and an integer k, return the k most frequent elements.
+ You may return the answer in any order.
 
  
 
@@ -17,18 +18,27 @@ from collections import Counter
 def topKFrequent(nums,k) :
 
     hashmap = {}
-    res =[]
+    
 
-    freq = [[] for i in range( len(nums)+1)]
+    freq = [[] for i in range( len(nums)+1)] #[[] ,[], [], [], [], [], []]
+    
        
     for n in nums :
-        hashmap[n] = 1+ hashmap.get(n,0)
+        hashmap[n] = 1+ hashmap.get(n,0) #{1: 3, 2: 2, 3: 1}
+
+    
 
     for n,c in hashmap.items():
-        freq[c].append(n)
+        freq[c].append(n) #[[], [3], [2], [1], [], [], []]
 
-    while k:
-        pass
+    res = []
+
+    for i in range(len(freq)-1, 0, -1):
+        for n in freq[i]:
+            print(n)
+            res.append(n)
+            if len(res)==k:
+                return res
 
 
 
