@@ -42,6 +42,7 @@ def two_sums(nums,target):
         if target - nums[i] in hashmap:
             return [i, hashmap[i]]
         hashmap[nums[i]] = i
+        print(hashmap)
 
    
    
