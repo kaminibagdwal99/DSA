@@ -72,8 +72,6 @@ def top_view(root):
 
     key.sort()
 
-    
-
     for i in key:
         res.append(map[i])
 

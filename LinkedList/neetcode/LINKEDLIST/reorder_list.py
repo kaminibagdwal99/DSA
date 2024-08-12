@@ -29,6 +29,8 @@ def reorder_list(head):
 
 
     first_half, second_half  = head, prev
+    print_ll(head)
+    print_ll(prev)
     while second_half:
         temp1, temp2 = first_half.next, second_half.next
         first_half.next = second_half
@@ -50,11 +52,13 @@ b = Node(2)
 c = Node(3)
 d = Node(4)
 e = Node(5)
+f = Node(6)
 
 a.next = b
 b.next = c
 c.next = d
 d.next = e
+e.next = f
 
 print_ll(a)
 

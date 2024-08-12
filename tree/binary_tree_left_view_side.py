@@ -1,5 +1,7 @@
 """
-Given a Binary Tree, return Left view of it. Left view of a Binary Tree is set of nodes visible when tree is visited from Left side. The task is to complete the function leftView(), which accepts root of the tree as argument. If no left view is possible, return an empty tree.
+Given a Binary Tree, return Left view of it. Left view of a Binary Tree is set of nodes visible 
+when tree is visited from Left side. The task is to complete the function leftView(), which 
+accepts root of the tree as argument. If no left view is possible, return an empty tree.
 
 Left view of following tree is 1 2 4 8.
 
@@ -36,9 +38,6 @@ class Solution:
             if lnode:
               res.append(lnode.value)
         return res
-
-            
-                    
 
 def print_tree(node, level=0):
     if node :

@@ -16,7 +16,7 @@ def remove_n_node(head, n):
         slow = slow.next 
         fast = fast.next
     slow.next = slow.next.next
-    return head.next
+    return head
  
 
 

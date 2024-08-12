@@ -69,8 +69,8 @@ def reverse():
 
     return result
 
-# reversed_string = reverse()
-# print(reversed_string)
+reversed_string = reverse()
+print(reversed_string)
 
 
 # text editor 2 inpurt
