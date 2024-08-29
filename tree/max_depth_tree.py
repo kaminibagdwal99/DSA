@@ -6,10 +6,10 @@ class TreeNode:
         self.left = left
         self.right= right
 
-def max_length(root):
+def max_depth(root):
     if not root: return 0
-    left = max_length(root.left)
-    right = max_length(root.right)
+    left = max_depth(root.left)
+    right = max_depth(root.right)
 
     max_height = 1 +max(left,right) 
 
@@ -25,4 +25,4 @@ node.right.right = TreeNode(7)
 node.right.left =TreeNode(6)
 
 
-print(max_length(node))
+print(max_depth(node))

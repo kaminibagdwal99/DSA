@@ -44,7 +44,7 @@ class Solution:
     
 
 a = Solution()
-n = 15
+n = 19
 print(a.isHappy(n))
 
 

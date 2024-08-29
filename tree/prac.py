@@ -4,25 +4,23 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def isSameTree(p,q):
-        if not p and not q:
-            return True
-        if not p or not q or p.val != q.val:
-             return False
-        
-        return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
+def invert_tree(p):
+    if not p : return 0
+    left = invert_tree(p.left)
+    right = invert_tree(p.right)
+    max_depth = 1+ max(left,right)
+
+    return max_depth
+
 
 
 
 
 node = TreeNode(1)
-node.right = TreeNode(3)
-node.left = TreeNode(3)
+node.right = TreeNode(2)
+node.right.left = TreeNode(3)
 
-node2 = TreeNode(1)
-node2.right = TreeNode(2)
-node2.left = TreeNode(3)
+ 
+root = node
 
-
-
-print(isSameTree(node, node2))
+print(postorder_transversal(root))

@@ -28,11 +28,13 @@ class Solution:
             return "0"
         
         res =[0] *(len(num1)+len(num2))
+        
         num1 , num2 = num1[::-1], num2[::-1]
+        print(num1, num2)
 
 
-        for i in range(num2):
-            pass
+        # for i in range(num2):
+        #     pass
 
 a = Solution()
 print(a.multiply(num1 = "123", num2 = "456"))

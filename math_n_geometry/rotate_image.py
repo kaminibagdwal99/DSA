@@ -17,12 +17,8 @@ class Solution:
         Do not return anything, modify matrix in-place instead.
         """
         matrix.reverse()
-        print(matrix)
         for i in range(len(matrix)):
-            print("i is ",i)
             for j in range(i):
-                print("j is ",j)
-                print(matrix[i][j], matrix[j][i])
                 matrix[i][j], matrix[j][i]=matrix[j][i],matrix[i][j]
 
         return matrix
@@ -31,7 +27,7 @@ class Solution:
 
 a = Solution()
 matrix = [[1,2,3],[4,5,6],[7,8,9]]
-# print(a.rotate(matrix))
+print(a.rotate(matrix))
         
 
 

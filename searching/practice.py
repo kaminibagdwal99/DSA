@@ -1,22 +1,12 @@
 
 import math
-def minEatingSpeed(piles, h):
-    l , r = 0, max(piles)
-    res = r
-    while l<=r:
-        k = (l +r)//2
-        time = 0
+class Solution:
+    def findMin(piles, h):
+        l =0
+        r = len(piles)-1
+   
 
-        for i in piles:
-            time = time + math.ceil(i/k)
 
-        if time<=h:
-            res = min(k, res)
-            r = k-1
-        else:
-            l = k+1
-
-    return res
-
-piles = [30,11,23,4,20]; h = 6
-print(minEatingSpeed(piles,h))
+a = Solution()
+nums = [4,5,6,7,0,1,2]
+print(a.findMin(nums))
