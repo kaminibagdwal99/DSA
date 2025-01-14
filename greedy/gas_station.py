@@ -47,14 +47,21 @@ class Solution:
         if sum(gas)< sum(cost):
             return -1
         total =0
+        start =0
 
         for i in range(len(gas)):
             total += (gas[i]-cost[i])
+            
             if total <0:
                 total =0
                 start = i+1
+        
+        # for i, j in enumerate(zip(gas, cost)):
+        #     if j[0] -j[1] >0:
+        #         return i
+
 
         return start
 
 a = Solution()
-print(a.canCompleteCircuit(gas = [2,3,4], cost = [3,4,3]))
+print(a.canCompleteCircuit(gas = [1,2,3,4,5], cost = [3,4,5,1,2]))

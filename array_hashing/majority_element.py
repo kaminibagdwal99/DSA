@@ -31,7 +31,7 @@ class Solution:
         max_value =0
         key =0
         for i,v in value.items():
-            max_value= max(v,max_value)
+            max_value= max(i,max_value)
             key = i
         return key
         

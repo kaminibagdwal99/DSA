@@ -18,33 +18,48 @@ from collections import Counter
 def topKFrequent(nums,k) :
 
     hashmap = {}
-    
-
     freq = [[] for i in range( len(nums)+1)] #[[] ,[], [], [], [], [], []]
     
-       
     for n in nums :
         hashmap[n] = 1+ hashmap.get(n,0) #{1: 3, 2: 2, 3: 1}
 
-    
-
     for n,c in hashmap.items():
         freq[c].append(n) #[[], [3], [2], [1], [], [], []]
-
+    print(freq)
     res = []
 
     for i in range(len(freq)-1, 0, -1):
         for n in freq[i]:
-            print(n)
             res.append(n)
             if len(res)==k:
-                return res
+                return res    
 
+nums = [1,1,1,2,2,3]
+k = 1
+
+print(topKFrequent(nums,k))
+
+# this is done using Counter
+
+
+# from collections import Counter
+# def topKFrequent(nums, k):
+#     freq = [[] for _ in range(len(nums)+1)]
+#     a = Counter(nums)
+#     for key, v in a.items():
+#         freq[v].append(key)
+
+    
+#     res = []
+#     for i in range(len(freq)-1, 0, -1):
+#         for n in freq[i]:
+#             res.append(n)
+#             if len(res)==k:
+#                 return res    
 
 
     
+# nums = [1,1,1,2,2,3]
+# k = 2
 
-nums = [1,1,1,2,2,3]
-k = 2
-
-print(topKFrequent(nums,k))
+# print(topKFrequent(nums,k))

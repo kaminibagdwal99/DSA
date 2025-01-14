@@ -49,5 +49,5 @@ class Solution:
 
 a = Solution()
 
-piles = [3,6,7,11]; h = 8
+piles = [30,11,23,4,20]; h = 5
 print(a.minEatingSpeed(piles,h))

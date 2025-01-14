@@ -52,5 +52,35 @@ class Solution:
 
 a = Solution()
 candidates = [2,3,6,7]; target = 7
+# print(a.combinationSum(candidates, target))
+
+
+
+class Solutions:
+    def combinationSum(self, candidates, target) :
+        res = []
+        def dfs(i, sum , cur ):
+            # base case
+            if sum ==target:
+                res.append(cur.copy())
+                return
+            if  i >=len(candidates) or sum > target:
+                return
+            
+            cur.append(candidates[i])
+            dfs(i, sum + candidates[i], cur)
+
+            cur.pop()
+            dfs(i+1, sum, cur)
+
+
+        dfs(0, 0, [])
+        return res
+            
+            
+
+        
+a = Solutions()
+candidates = [2,3,6,7]; target = 7
 print(a.combinationSum(candidates, target))
   

@@ -1,41 +1,25 @@
-class Node:
-    def __init__(self, val =0):
-        self.val = val 
-        self.next = None
+from collections import OrderedDict
+class LRUCache:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.cache = OrderedDict()
 
+    def get(self, key):
+        if key in self.cache:
+            self.cache.move_to_end(key)
+            return self.cache[key]
+        return -1
+    
+    def put(self, key, value):
+        if key in self.cache:
+            self.cache.move_to_end(key)
+        elif len(self.cache)>=self.capacity:
+                self.cache.popitem(last = False)
+        self.cache[key]=value
 
-def reorder_list(head):
-    slow = head
-    fast = head.next
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-
-    second = slow.next
-    slow.next = None
-    prev = None
-    cur = second
-    while cur:
-        temp = cur.next
-        cur.next = prev
-        prev = cur
-        cur = temp
-
-    first_half, seconf_half = head, prev
-    while seconf_half:
-        t1, t2 = first_half.next, seconf_half.next
-        first_half.next = seconf_half
-        seconf_half.next=t1
-        first_half , seconf_half= t1, t2
-    return head
-
-def print_ll(root):
-    cur= root
-    while cur:
-        print(cur.val, "->", end = " ")
-        cur = cur.next
-    print(None)
-
-
-
-
+obj = LRUCache(2)
+obj.put(1,1)
+obj.put(2,2)
+print(obj.get(1))
+obj.put(3,3)
+print(obj.get(2))

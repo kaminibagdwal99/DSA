@@ -46,8 +46,9 @@ class Solution:
             
             res+= n%2
             n = n>>1
+            
         return res
 a = Solution()
-n = 11
+n = 110
 
 print(a.hammingWeight(n))

@@ -9,7 +9,7 @@ class NodeTree:
 
     def diameter(self):
         res = [0]
-        
+        print(f"res",res)
         def dfs(self):
             if not self:
                 return -1
@@ -18,6 +18,7 @@ class NodeTree:
             right = dfs(self.right)
 
             res[0] = max(res[0], 2 + left + right)
+            print(res)
 
             return 1 + max(left, right)
         dfs(self)

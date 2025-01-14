@@ -5,7 +5,7 @@ class Node:
 
 
 def rotate(a, k):
-    # compute the length og LL:
+    # compute the length of LL:
     head = a
     
     len = 1

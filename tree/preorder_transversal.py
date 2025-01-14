@@ -18,6 +18,6 @@ node.right = TreeNode(2)
 node.right.left = TreeNode(3)
 
  
-root = node
 
-print(preorder_transversal(root))
+
+print(preorder_transversal(node))

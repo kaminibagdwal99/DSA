@@ -30,7 +30,7 @@ class Solution:
     def singleNumber(self, nums) -> int:
         res = 0
         for n in nums:
-            res = n^res
+            res = n^res #xor operation 0^0 =0 1^1=0 1^0=1
         return res
         
         

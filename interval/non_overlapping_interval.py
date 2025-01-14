@@ -1,5 +1,6 @@
 """
-Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of
+ intervals you need to remove to make the rest of the intervals non-overlapping.
 
  
 
@@ -22,6 +23,7 @@ Explanation: You don't need to remove any of the intervals since they're already
 class Solution:
     def eraseOverlapIntervals(self, intervals):
         intervals.sort()
+        print(intervals)
         res = 0
         end = intervals[0][1]
 
@@ -34,5 +36,5 @@ class Solution:
         return res
 a = Solution()  
 
-intervals = [[1,2],[1,2],[1,2]]
+intervals = [[1,2],[2,3],[3,4],[1,3]]
 print(a.eraseOverlapIntervals(intervals))

@@ -13,7 +13,9 @@ Left view of following tree is 1 2 4 8.
    \
      8   
 """
+
 from collections import deque
+
 class TreeNode:
     def __init__(self, value=0,left = None, right = None ) :
         self.value = value

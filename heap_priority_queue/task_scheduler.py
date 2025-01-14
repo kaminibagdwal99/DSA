@@ -1,5 +1,7 @@
 """
-You are given an array of CPU tasks, each represented by letters A to Z, and a cooling time, n. Each cycle or interval allows the completion of one task. Tasks can be completed in any order, but there's a constraint: identical tasks must be separated by at least n intervals due to cooling time.
+You are given an array of CPU tasks, each represented by letters A to Z, and a cooling time, n. 
+Each cycle or interval allows the completion of one task. Tasks can be completed in any order, 
+but there's a constraint: identical tasks must be separated by at least n intervals due to cooling time.
 
 ​Return the minimum number of intervals required to complete all tasks.
 
@@ -41,7 +43,26 @@ class Solution:
     def leastInterval(self, tasks, n: int) -> int:
         count = Counter(tasks)
         maxHeap = [-i for i in count.values()]
-        heapq.heapify()
+
+        print(maxHeap)
+        
+        heapq.heapify(maxHeap)
+
+        time = 0
+        queue =[]
+
+        while queue or maxHeap:
+            time +=1
+
+            if maxHeap:
+                current_task = heapq.heappop(maxHeap) +1
+                if current_task:
+                    queue.append((current_task,time+n))
+
+            if queue and queue[0][1]==time:
+                heapq.heappush(maxHeap,queue.pop(0)[0])
+
+        return time
         
 
 a = Solution()

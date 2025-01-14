@@ -30,17 +30,18 @@ class Solution:
         res = []
 
         for i in range(len(intervals)):
-            if intervals[i][0]>newInterval[1]:
+            if intervals[i][0]>newInterval[1]:#newinterval last value is less than firrst value in intervals(list)
                 res.append(newInterval)
                 return res+ intervals[i:]
-            elif newInterval[0]>intervals[i][1]:
+            elif newInterval[0]>intervals[i][1]:# if the start of newinterval is greater than cuurent interval last value that means it came after that interval
                 res.append(intervals[i])
             else:
                 newInterval=[min(newInterval[0], intervals[i][0]), max(newInterval[1], intervals[i][1])]
+        res.append(newInterval)
 
         return res
 
 
 
 a = Solution()
-print(a.insert(intervals =  [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]))
+print(a.insert(intervals =  [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [24,28]))

@@ -69,20 +69,18 @@ class Solutionss:
     def missingNumber(self, nums) -> int:
         len = max(nums)
         set = [i for i in range(len+1)]
+        print(set)
         
         total =0
 
-        
-
-    
         for i in set:
             
             total = total ^i
+        print(total, "total")
            
         for i in nums:
             total = total ^ i
-
-        
+            print("total", total)
 
         return total
 

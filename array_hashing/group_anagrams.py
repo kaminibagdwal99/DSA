@@ -23,14 +23,12 @@ def group_anagram(strs):
     hashmap = defaultdict(list)
 
     for i in strs:
-        print(i)
         count = [0]*26
         for c in i:
             count[ord(c)- ord("a")] +=1
+        print(count)
 
         hashmap[tuple(count)].append(i)
-        print(hashmap[tuple(count)])
-
     return hashmap.values()
 
 

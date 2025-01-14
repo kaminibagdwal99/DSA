@@ -21,10 +21,12 @@ Constraints:
 # tc: o(1)
 class Solution:
     def getSum(self, a: int, b: int) -> int:
-        res = 0
+        while b !=0:
+            temp = a^b
+            b = (a&b)<<1
+            a = temp
+        return a
 
-        for i in a:
-            pass
 
 a = Solution()
 print(a.getSum(a = 1, b = 2))

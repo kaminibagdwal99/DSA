@@ -1,19 +1,20 @@
-class Solution:
-    def plusOne(self, digits):
-        digits = digits[::-1]
-        one , i = 1, 0
-        while one:
-            if i < len(digits):
-                if digits[i]==9:
-                    digits[i]=0
-                else:
-                    digits[i]+=1
-                    one = 0
-            else:
-                digits.append(1)
-                one = 0
-            i+=1
-        return digits[::-1]
-a = Solution()
-digits = [9,9,9]
-print(a.plusOne(digits))
+class Solutions:
+    def setZeroes(self, matrix):
+        pair = []
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j]==0:
+                    pair.append([i,j])
+
+        for p in pair:
+            r,c = p
+            for i in range(len(matrix)):
+                matrix[i][c]=0
+            for i in range(len(matrix[0])):
+                matrix[r][i]=0
+        return matrix
+        
+                   
+a = Solutions()
+matrix = [[1,1,1],[1,0,1],[1,1,1]]
+print(a.setZeroes(matrix))

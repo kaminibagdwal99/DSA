@@ -46,7 +46,7 @@ def two_sums(nums,target):
 
    
    
-nums = [3,2,4]
+nums = [3,1,2,4]
 target = 6
 
 print(two_sums(nums,target))

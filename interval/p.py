@@ -1,20 +1,20 @@
-def can_attend_meetings(intervals):
-    intervals.sort()
-    
-    end = intervals[0][1]
-    res =0
+class Solution:
+    def min_meeting_rooms(self,intervals):
+        start = sorted([i[0] for i in intervals ])
+        end = sorted([i[1] for i in intervals ])
+        count = 0
+        res =0
+        s,e = 0,0
+        while s < len(intervals):
+            if start[s]<end[e]:
+                s+=1
+                count+=1
+            else:
+                e+=1
+                count-=1
+            res  = max(count, res)
+        return res
 
-    for i in intervals[1:]:
-        if i[0]>=end:
-            end = i[1]
-        else:
-            res +=1
-            end = max( end, i[1])
-        
-    
-    return res
-
-    
-
-intervals =[[1,2],[2,3],[3,4],[1,3]]
-print(can_attend_meetings(intervals))
+a = Solution()
+intervals = [(0,30),(5,10),(15,20),(21,25)]
+print(a.min_meeting_rooms(intervals))

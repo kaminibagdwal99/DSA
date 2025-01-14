@@ -20,7 +20,9 @@ class Solution:
     """
     def can_attend_meetings(self, intervals) :
         intervals.sort()
+        
         for i in range( 1,len(intervals)):
+            print(intervals[i])
             if intervals[i][0]<intervals[i-1][1]:
                 return False
             
