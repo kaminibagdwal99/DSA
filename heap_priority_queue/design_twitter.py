@@ -27,26 +27,30 @@ twitter.getNewsFeed(1)#;  // User 1's news feed should return a list with 2 twee
 twitter.unfollow(1, 2)#;  // User 1 unfollows user 2.
 twitter.getNewsFeed(1)#;  // User 1's news feed should return a list with 1 tweet id -> [5], since user 1 is no longer following user 2.
  """
+from collections import defaultdict
 
 class Twitter:
 
     def __init__(self):
-        pass
+        self.count = 0
+        self.tweetMap = defaultdict(list)
+        self.followMap = defaultdict(set)
         
 
     def postTweet(self, userId: int, tweetId: int) -> None:
-        pass
-        
+        self.tweetMap[userId].append([self.count, tweetId])
+        self.count -=1
 
     def getNewsFeed(self, userId: int) :
         pass
         
 
     def follow(self, followerId: int, followeeId: int) -> None:
-        pass
+        self.followMap[followerId].add(followeeId)
     
     def unfollow(self, followerId: int, followeeId: int) -> None:
-        pass
+        if followeeId in self.followMap[followerId]:
+            self.followMap[followerId].remove(followeeId)
 
 twitter = Twitter()
 

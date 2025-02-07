@@ -26,8 +26,7 @@ class Solution:
     def isNStraightHand(self, hand, groupSize) :
         if len(hand)%groupSize !=0:
             return False
-        map ={}
-        
+        map ={}        
         for i in range(len(hand)):
             map[hand[i]]=1+ map.get(hand[i],0)
         minH = list(map.keys())
@@ -41,13 +40,8 @@ class Solution:
                 if map[i]==0:
                     if i !=minH[0]:
                         return False
-                    heapq.heappop(minH
-                                  )
+                    heapq.heappop(minH)
         return True
             
-        
-
-
-
 a = Solution()
 print(a.isNStraightHand(hand = [1,2,3,6,2,3,4,7,8], groupSize = 3))

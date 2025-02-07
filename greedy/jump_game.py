@@ -27,19 +27,10 @@ Constraints:
 # tc : (n) sc : o(1)
 class Solution:
     def canJump(self, nums) -> bool:
-        goal = len(nums)-1
-        print("goal", goal)
-        
+        goal = len(nums)-1      
         for i in range(len(nums)-1, -1, -1):
-            print("i",i)
-            print(nums[i], "goal ", goal)
-            
-           
-            if i+nums[i]>=goal:
-               
+            if i+nums[i]>=goal:   
                 goal =i
-                
-
         return True if goal ==0 else False
 
 a = Solution()

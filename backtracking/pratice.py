@@ -1,24 +1,22 @@
 class Solution:
-    def subsets(self, num):
+    def permute(self,nums):
         res = []
-        cur = []
-        def dfs(i):
-            # base case
-            if i >= len(num):
-                res.append(cur.copy())
+        
+        def helper(idx,ds):
+            if idx==len(nums):
+                res.append(ds.copy())
                 return
-            # desicion to include num[i]
-            cur.append(num[i])
-            dfs(i+1)
-            cur.pop()
-            dfs(i+1)
-        dfs(0)
+            for i in range(idx,len(nums)):
+                nums[i], nums[idx]=nums[idx],nums[i]
+                helper(idx+1,ds)
+                nums[i], nums[idx]=nums[idx],nums[i]
+
+
+
+
+            
+        helper(0,nums)
         return res
-            
-            
-
-
 
 a = Solution()
-nums = [1,2,3]
-print(a.subsets(nums))
+print(a.permute( nums = [1,2,3]))

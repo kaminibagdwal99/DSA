@@ -25,7 +25,7 @@ def topKFrequent(nums,k) :
 
     for n,c in hashmap.items():
         freq[c].append(n) #[[], [3], [2], [1], [], [], []]
-    print(freq)
+    
     res = []
 
     for i in range(len(freq)-1, 0, -1):
@@ -35,8 +35,7 @@ def topKFrequent(nums,k) :
                 return res    
 
 nums = [1,1,1,2,2,3]
-k = 1
-
+k = 2
 print(topKFrequent(nums,k))
 
 # this is done using Counter

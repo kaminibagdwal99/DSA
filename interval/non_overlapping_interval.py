@@ -23,7 +23,6 @@ Explanation: You don't need to remove any of the intervals since they're already
 class Solution:
     def eraseOverlapIntervals(self, intervals):
         intervals.sort()
-        print(intervals)
         res = 0
         end = intervals[0][1]
 

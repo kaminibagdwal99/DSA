@@ -33,7 +33,7 @@ class Solution:
          
         def conbination_helper(ind, ds, target):
             if target == 0:
-                res.append(list(ds))
+                res.append(ds)
                 return 
             for i in range(ind, len(candidates)):
                 if i > ind and candidates[i-1]==candidates[i]:

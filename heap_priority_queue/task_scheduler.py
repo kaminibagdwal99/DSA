@@ -44,8 +44,6 @@ class Solution:
         count = Counter(tasks)
         maxHeap = [-i for i in count.values()]
 
-        print(maxHeap)
-        
         heapq.heapify(maxHeap)
 
         time = 0
@@ -67,3 +65,31 @@ class Solution:
 
 a = Solution()
 print(a.leastInterval(["A","A","A","B","B","B"], n = 2))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
