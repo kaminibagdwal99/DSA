@@ -21,6 +21,8 @@ Output: 7"""
 class Solution:
     def longestConsecutive(self, nums):
         numset = set(nums)
+        print(numset)
+        
         longest = 0
         for i in numset:
             if (i-1) not in numset:
@@ -32,6 +34,5 @@ class Solution:
             
 
 a = Solution()
-print(a.longestConsecutive(nums = [2,20,4,10,3,4,5]
-))
+print(a.longestConsecutive(nums = [2,20,4,10,3,4,5]))
 

@@ -43,7 +43,6 @@ class Solution:
     def leastInterval(self, tasks, n: int) -> int:
         count = Counter(tasks)
         maxHeap = [-i for i in count.values()]
-
         heapq.heapify(maxHeap)
 
         time = 0

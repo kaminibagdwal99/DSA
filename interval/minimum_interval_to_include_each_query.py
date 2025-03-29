@@ -19,10 +19,23 @@ Query = 1: The interval [1,3] is the smallest one containing 1, it's length is 3
 Query = 7: The interval [3,7] is the smallest one containing 7, it's length is 5.
 Query = 6: The interval [6,6] is the smallest one containing 6, it's length is 1.
 Query = 8: There is no interval containing 8."""
-
+import heapq
 class Solution:
     def minInterval(self, intervals, queries) :
-        pass
+        intervals.sort()
+        minHeap = []
+        res = {}
+        i = 0
+        for q in sorted(queries):
+            while i < len(intervals) and intervals[i][0] <= q:
+                l, r = intervals[i]
+                heapq.heappush(minHeap, (r - l + 1, r))
+                i += 1
 
-a = Solution
+            while minHeap and minHeap[0][1] < q:
+                heapq.heappop(minHeap)
+            res[q] = minHeap[0][0] if minHeap else -1
+        return [res[q] for q in queries]
+
+a = Solution()
 print(a.minInterval(intervals = [[1,3],[2,3],[3,7],[6,6]], queries = [2,3,1,7,6,8]))

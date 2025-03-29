@@ -19,7 +19,7 @@ def is_balanced(open, closed):
     return bracket_pairs[closed]==open
 
 
-expression = "{(a+b)+(c+d)}"
+expression = "{(a+b)+(c+d}"
 
 print(valid_parenthesis(expression))
 

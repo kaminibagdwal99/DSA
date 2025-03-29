@@ -29,7 +29,7 @@ def next_greater_element(list):
             index = stack.pop()
             res[index]= list[i]
         stack.append(i)
-        print(stack)
+        
 
     return res
 

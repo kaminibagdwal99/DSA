@@ -32,12 +32,6 @@ def levelorder(root):
 
     return result
 
-
-
-
-            
-
-
 node = TreeNode(1)
 node.right = TreeNode(3)
 node.left = TreeNode(2)

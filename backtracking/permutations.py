@@ -28,15 +28,15 @@ class Solution:
     def permute(self, nums):
         res =[]
 
-        def permutation_helper(index, ds):
+        def permutation_helper(index):
             if index == len(nums):
-                res.append(ds[:])
+                res.append(nums[:])
                 return
             for i in range(index, len(nums)):
                 nums[index], nums[i] = nums[i], nums[index]
-                permutation_helper(index+1, ds)
+                permutation_helper(index+1)
                 nums[index], nums[i] = nums[i], nums[index]
-        permutation_helper(0, nums)
+        permutation_helper(0)
                 
 
         return res

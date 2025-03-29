@@ -31,7 +31,7 @@ class ListNode:
         self.val = val
         self.next = next
 
-[1,4,5],[1,3,4],[2,6]
+
 
 a = ListNode(1)
 b = ListNode(4)

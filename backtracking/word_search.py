@@ -56,9 +56,6 @@ class Solution:
                     return True
         return False
 
-    
-
-
 a = Solution()
 board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
 word = "ABCC"

@@ -3,9 +3,9 @@ class Node:
         self.value = value
         self.next = None
 
-a = Node(1)
+a = Node(9)
 b = Node(2)
-c = Node(3)
+c = Node(4)
 d = Node(9)
 e = Node(4)
 f = Node(6)

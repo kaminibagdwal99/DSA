@@ -29,6 +29,7 @@ class Solution:
         map ={}        
         for i in range(len(hand)):
             map[hand[i]]=1+ map.get(hand[i],0)
+        print(map)
         minH = list(map.keys())
         heapq.heapify(minH)
         while minH:

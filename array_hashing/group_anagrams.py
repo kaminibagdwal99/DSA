@@ -28,7 +28,7 @@ def group_anagram(strs):
             count[ord(c)- ord("a")] +=1
 
         hashmap[tuple(count)].append(i)
-    return hashmap.values()
+    return hashmap
 
 
 strs = ["eat","tea","tan","ate","nat","bat"]

@@ -40,7 +40,6 @@ class Solution:
         nums.sort()
 
         for i, a in enumerate(nums):
-            print(i,a)
             if i>0 and nums[i-1]==a:
                 continue
             l,r = i+1, len(nums)-1
@@ -58,5 +57,5 @@ class Solution:
         return res
 
 b = Solution()
-nums = [-1,0,1,2,-1,-4]
+nums = [-1,1,2,-1,-4]
 print(b.three_Sum(nums))

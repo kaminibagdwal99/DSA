@@ -38,15 +38,15 @@ print(two_sum(nums,target))
 # tc: o(n) sc: o(n)
 def two_sums(nums,target):
     hashmap ={}
-    for i in range(len(nums)):
+    for i,n in enumerate(nums):
         if target - nums[i] in hashmap:
-            return [i, hashmap[i]]
+            return [i, hashmap[target - nums[i]]]
         hashmap[nums[i]] = i
         
 
    
    
-nums = [3,2,4]
-target = 6
+nums = [1,2,11,15,7]
+target = 9
 
 print(two_sums(nums,target))

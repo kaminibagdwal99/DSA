@@ -45,8 +45,6 @@ Then, the fleet (speed 2) and the car starting at 4 (speed 1) become one fleet, 
 class Solution:
     def carFleet(self, target: int, position, speed) -> int:
         pair =  [[p,s] for p,s in zip(position, speed)]
-        print(pair)
-
         stack = []
 
         for i ,v in sorted(pair)[::-1]:
@@ -57,4 +55,4 @@ class Solution:
         return len(stack)
 
 no_of_flleet = Solution()
-print(no_of_flleet.carFleet( target = 100, position = [0,2,4], speed = [4,2,1]))
+print(no_of_flleet.carFleet( target = 100, position = [0,1,4], speed = [4,2,1]))

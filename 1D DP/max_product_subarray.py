@@ -16,12 +16,18 @@ Input: nums = [-2,-1]
 Output: 2"""
 
 class Solution:
-    def characterReplacement(self, s, k) :
-        count = {}
-        res = 0
-        l = 0
-        for r in range(len(s)):
-            count[s[r]] = 1 + count.get(s[r], 0)
+    def maxProduct(self, nums) :
+        
+        res = max(nums)
+        curmax, curmin = 0,0
 
-            while ( r-l+1) - max(count.values)<=k:
-                l+=1
+
+        for num in nums:
+            tmp = curmax * num
+            curmax = max(num * curmax, num * curmin,num)
+            curmin = min(tmp, curmin*num, num)
+            res = max(res, curmax)
+        return res
+
+a = Solution()
+print(a.maxProduct(nums = [1,2,-3,4]))

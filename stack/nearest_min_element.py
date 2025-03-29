@@ -47,6 +47,7 @@ def min_elemen(arr):
 
 
     for i in range(len(arr)-1,-1,-1):
+        print(i)
         while stack and arr[i] <= arr[stack[-1]]:
             index = stack.pop()
             res[index]=arr[i]

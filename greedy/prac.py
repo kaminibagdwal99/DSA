@@ -1,4 +1,4 @@
-
+import heapq
 class Solution:
     def maxSubArray(self,nums):
         sum =0
@@ -47,6 +47,24 @@ class Solution:
     def isNStraightHand(self, hand, groupSize):
         if len(hand) % groupSize !=0:
             return False
+        
+        map = {}
+        for i in hand:
+            map[i]= 1 + map.get(i, 0)
+
+        minheap = list(map.keys())
+        heapq.heapify(minheap)
+        while minheap:
+            first = minheap[0]
+            for i in range(first, first+groupSize):
+                if i not in map:
+                    return False
+                map[i] -=1
+                if map[i]==0:
+                    if i != minheap[0]:
+                        return False
+                    heapq.heappop(minheap)
+        return True
 
 
 a = Solution()

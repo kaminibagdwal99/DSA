@@ -30,15 +30,12 @@ Follow up: If this function is called many times, how would you optimize it?
 class Solution:
     def reverseBits(self, n: int) -> int:   
         res =0
-        for i in range(32):
-            
+        for i in range(32):          
             bit = (n>>i) & 1
             res =res |(bit<<(31-i))
-            print(bit, res)
-
         return res
 
 
 
 a = Solution()
-print(a.reverseBits(4))
+print(a.reverseBits(0o00000010100101000001111010011100))

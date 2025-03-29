@@ -26,13 +26,10 @@ class Solution:
             res = res *10 + x%10
             x = x//10
         res = res * sign
-        if res < -2**31 or res > 2**31 - 1:
-            return 0
+        # if res < -2**31 or res > 2**31 - 1:
+        #     return 0
         
         return res
-
-
-
 
 a = Solution()
 x = -123

@@ -68,20 +68,14 @@ print(a.missingNumber(nums = [9,6,4,2,3,5,7,0,1]))
 class Solutionss:
     def missingNumber(self, nums) -> int:
         len = max(nums)
-        set = [i for i in range(len+1)]
-        print(set)
-        
+        set = [i for i in range(len+1)] 
         total =0
 
         for i in set:
-            
             total = total ^i
-        print(total, "total")
-           
+        
         for i in nums:
             total = total ^ i
-            print("total", total)
-
         return total
 
 a = Solutionss()

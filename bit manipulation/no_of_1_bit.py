@@ -38,17 +38,13 @@ The input binary string 1111111111111111111111111111101 has a total of thirty se
 """
 
 class Solution:
-    def hammingWeight(self, n: int) -> int:
-        
+    def hammingWeight(self, n: int) -> int:    
         res = 0
-
-        while n:
-            
+        while n:       
             res+= n%2
-            n = n>>1
-            
+            n = n>>1    
         return res
+    
 a = Solution()
-n = 110
-
+n = 9
 print(a.hammingWeight(n))
