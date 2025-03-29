@@ -45,24 +45,26 @@ class WordDictionary:
         cur.endOfWord=True
 
     def search(self, word):
-        def dfs(index,root):
-            cur=root
-            for i in range(index,len(word)):
-                c=word[i]
-                if c ==".":
-                    for child in range(len(cur.children)):
-                        if dfs(i+1, child):
+        def dfs(index, node):
+            cur = node
+            for i in range(index, len(word)):
+                c = word[i]
+                
+                if c == ".":
+                    for child in cur.children:
+                        if child and dfs(i + 1, child):  # Fix: Pass the TrieNode instead of index
                             return True
                     return False
-                
 
                 else:
-                    if cur.children[i]==None:
+                    idx = ord(c) - ord("a")  # Fix: Convert character to index
+                    if cur.children[idx] is None:
                         return False
-                    cur=cur.children[c]
-                return cur.endOfWord
-        
-        dfs(0,self.root)
+                    cur = cur.children[idx]  # Fix: Access the correct TrieNode
+
+            return cur.endOfWord  # Fix: Return only after processing the whole word
+
+        return dfs(0, self.root)  # Fix: Return the result of DFS call
 wordDictionary = WordDictionary()
 wordDictionary.addWord("day")
 wordDictionary.addWord("bay")
