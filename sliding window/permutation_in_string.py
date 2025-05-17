@@ -27,6 +27,8 @@ class Solution:
            
             s2count[ord(s2[i]) - ord('a')] +=1 
 
+        
+
         matches = 0
 
         for i in range(26):
@@ -50,7 +52,7 @@ class Solution:
             elif s1count[index]-1 == s2count[index]:
                 matches -=1
             l +=1
-        return False
+        return matches==26
 
 
             

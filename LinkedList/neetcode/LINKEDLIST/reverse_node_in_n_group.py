@@ -29,8 +29,6 @@ class Node:
 class Solution:
     def reverseKGroup(self, head, k):
         dummy = Node(0,head)
-        print("dummy")
-        print_ll(dummy)
         groupprev = dummy
         while True:
             kth = self.kth(groupprev, k)
@@ -62,11 +60,13 @@ b = Node(2)
 c = Node(3)
 d = Node(4)
 e = Node(5)
+f= Node(6)
 
 a.next = b
 b.next = c
 c.next = d
 d.next = e
+e.next = f
 
 
 def print_ll(head):
@@ -80,4 +80,4 @@ def print_ll(head):
 
 print_ll(a)
 b = Solution()
-print_ll(b.reverseKGroup(a, k=2))
+print_ll(b.reverseKGroup(a, k=3))

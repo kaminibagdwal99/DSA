@@ -1,64 +1,26 @@
-class Node:
-    def __init__(self, val=0, next=None):
-        self.value = val
-        self.next = next
+from collections import OrderedDict
+class LRUCache:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.cache = OrderedDict()
+        
 
-class Solution:
-
-    def reverseKGroup(self, a, k):
-        dummy = Node(0,a)
-        groupPrev= dummy
-
-        while True :
-            kth = self.getkth(groupPrev,k)
-            if not kth:
-                break
-
-            groupNext= kth.next
-
-            prev, cur = kth.next, groupPrev.next
-
-            while cur !=groupNext:
-                temp= cur.next
-                cur.next = prev
-                prev=cur
-                cur=temp
-
-            tmp = groupPrev.next
-            groupPrev.next= kth
-            groupPrev=tmp
-
-        return dummy.next
-
-    def getkth(self, cur, k):
-        while cur and k>0:
-            cur=cur.next
-            k=k-1
-        return cur
+    def get(self, key):
+        if key in self.cache:
+            self.cache.move_to_end(key)
+            return self.cache[key]
+        return -1
     
-
-
-a = Node(1)
-b = Node(2)
-c = Node(3)
-d = Node(4)
-e = Node(5)
-
-a.next = b
-b.next = c
-c.next = d
-d.next = e
-
-
-def print_ll(head):
-    cur = head
-    while cur:
-        print(cur.value, "->",end = " ")
-        cur = cur.next
-    print("None")
-
-
-
-print_ll(a)
-b = Solution()
-print_ll(b.reverseKGroup(a, k=2))
+    def put(self, key, value):
+        if key in self.cache:
+            self.cache.move_to_end(key)
+        if len(self.cache)>=self.capacity:
+            self.cache.popitem(last = False)
+        self.cache[key]=value
+    
+obj = LRUCache(2)
+obj.put(1,1)
+obj.put(2,2)
+print(obj.get(1))
+obj.put(3,3)
+print(obj.get(2))
