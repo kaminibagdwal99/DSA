@@ -38,4 +38,4 @@ class Solution:
 
 
 a = Solution()
-print(a.reverseBits(0o00000010100101000001111010011100))
+print(a.reverseBits(4294967293))

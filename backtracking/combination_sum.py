@@ -52,7 +52,7 @@ class Solution:
 
 a = Solution()
 candidates = [2,3,6,7]; target = 7
-# print(a.combinationSum(candidates, target))
+print(a.combinationSum(candidates, target))
 
 
 

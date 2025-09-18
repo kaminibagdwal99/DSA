@@ -1,43 +1,40 @@
-class TrieNode:
+class Node:
     def __init__(self):
-        self.chidren = [None]*26
+        self.children= [None]*26
         self.eof = False
+
 
 class WordDictionary:
     def __init__(self):
-        self.root = TrieNode()
+        self.root = Node()
 
-    def addWord(self, key):
-        curr= self.root
-        for c in key:
-            i = ord(c)- ord("a")
-            if curr.chidren[i] is None:
-                curr.chidren[i]= TrieNode()
-            curr=curr.chidren[i]
-        curr.eof =True
+    def addWord(self, word):
+        cur = self.root
+        for c in word:
+            i = ord(c)-ord("a")
+            if cur.children[i] is None:
+                cur.children[i] =Node()
+            cur = cur.children[i]
+        cur.eof = True
 
-    def search(self, key):
+    def search(self, word):
         def dfs(index, node):
-            curr= node
-            for i  in range(index, len(key)):
-                c = key[i]
-                if c ==".":
-                    for child in curr.chidren:
+            cur = node
+            for i in range(index, len(word)):
+                c= word[i]
+                if c==".":
+                    for child in cur.children:
                         if child and dfs(i+1, child):
                             return True
                     return False
                 else:
-
-            
                     idx = ord(c)-ord("a")
-                    if curr.chidren[idx] is None:
+                    if cur.children[idx] is None:
                         return False
-                    curr = curr.chidren[idx]
-            return curr.eof
-        return dfs(0,self.root)
-    
-    
-
+                    cur = cur.children[idx]
+            return cur.eof 
+        return dfs(0, self.root)
+            
 
 
 
@@ -48,4 +45,4 @@ wordDictionary.addWord("may")
 print(wordDictionary.search("say"))
 print(wordDictionary.search("day"))
 print(wordDictionary.search(".ay"))
-print(wordDictionary.search("b..")) 
+print(wordDictionary.search("b.."))

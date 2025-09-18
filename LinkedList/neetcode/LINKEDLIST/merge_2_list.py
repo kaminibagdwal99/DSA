@@ -6,8 +6,8 @@ class Node:
 a = Node(1)
 b = Node(2)
 c = Node(3)
-d = Node(1)
-e = Node(4)
+d = Node(4)
+e = Node(5)
 f = Node(6)
 
 

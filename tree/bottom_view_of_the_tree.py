@@ -83,11 +83,14 @@ def bottom_view(root):
             queue.append([cur.left, col-1])
         if cur.right:
             queue.append([cur.right, col+1])
+    print(map)
 
     key = []
     for i in map.keys():
         key.append(i)
+    print(key)
     key.sort()
+    print(key)
 
     for i in key:
         res.append(map[i])

@@ -30,6 +30,7 @@ class Solution:
             for k,v in enumerate(i):
                 if v==target[k]:
                     good.add(k)
+        
         return len(good)==3
         
 

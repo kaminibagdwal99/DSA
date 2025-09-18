@@ -9,7 +9,6 @@ class NodeTree:
 
     def diameter(self):
         res = [0]
-        print(f"res",res)
         def dfs(self):
             if not self:
                 return -1
@@ -36,10 +35,10 @@ a.right.left.right = NodeTree(8)
 
 def print_tree(node, level=0):
     if node is not None:
-        print_tree(node.left, level + 1)
-        print(' ' * 8 * level + '->', node.val)
         print_tree(node.right, level + 1)
+        print(' ' * 4 * level + '->', node.val)
+        print_tree(node.left, level + 1)
 
-# print_tree(a)
+print_tree(a)
 p =a.diameter()
 print(p)

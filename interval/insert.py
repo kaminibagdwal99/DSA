@@ -44,4 +44,4 @@ class Solution:
 
 
 a = Solution()
-print(a.insert(intervals =  [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [24,28]))
+print(a.insert(intervals =  [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]))

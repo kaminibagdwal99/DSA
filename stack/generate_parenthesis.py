@@ -28,5 +28,5 @@ class Solution:
 
 z = Solution()
 
-print(z.generateParenthesis(4))
+print(z.generateParenthesis(3))
 

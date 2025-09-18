@@ -25,6 +25,7 @@ class Solution:
         resLen =0
 
         for i in range(len(s)):
+            # odd
             l,r = i,i
             while l>=0 and r<len(s) and s[l]==s[r]:
                 if (r-l+1)>resLen:

@@ -44,7 +44,6 @@ class Solution:
             q = deque()
             visit.add((r,c))
             q.append((r,c))
-            print(f"visit is {visit}")
 
             while q:
                 row,col = q.popleft()
@@ -59,7 +58,6 @@ class Solution:
         for row in range(rows):
             for col in range(cols):
                 if grid[row][col]== "1" and (row,col) not in visit:
-                    print(f"row is{row},col is {col}")
                     bfs(row,col)
                     island +=1
         return island

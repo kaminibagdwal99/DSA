@@ -79,10 +79,9 @@ class Solution:
         
         res =""
         for sym, val in reversed(roman):
-            print(sym,val)
+            print(sym, val)
             if num // val:
                 count =num//val
-                print("count", count)
                 res += (sym*count)
                 num = num % val
 

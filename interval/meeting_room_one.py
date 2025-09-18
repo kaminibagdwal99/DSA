@@ -30,5 +30,5 @@ class Solution:
 
            
 a = Solution()
-intervals = [[0,30],[5,10],[15,20]]
+intervals = [[0,3],[5,10],[15,20]]
 print(a.can_attend_meetings(intervals))

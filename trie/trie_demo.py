@@ -1,63 +1,44 @@
-# https://www.geeksforgeeks.org/trie-insert-and-search/
-
-class TrieNode:
+class Node:
     def __init__(self):
-        self.children = [None] * 26
-        self.isEndOfWord = False
+        self.children = [None]* 26
+        self.eof = False
 
-
-class Trie:
+class WordDictionary:
     def __init__(self):
-        self.root = TrieNode()
+        self.root = Node()
 
-    def insert(self,key):
-        curr = self.root
-
-        for c in key:
-            index = ord(c)-ord("a")
-            if curr.children[index] is None:
-                curr.children[index] = TrieNode()
-            curr= curr.children[index]
-        curr.isEndOfWord = True
-
-    def search(self,key):
-        curr= self.root
-        for c in key:
-            index = ord(c)-ord("a")
-            if curr.children[index] is None:
-                return False
-            curr= curr.children[index]
-        return curr.isEndOfWord
-    
-    def prefix(self, key):
-        curr= self.root
-        for c in key:
+    def addWord(self, word):
+        cur = self.root
+        for c in word:
             i = ord(c)-ord("a")
-            if curr.children[i] is None:
-                return False
-            curr= curr.children[i]
-        return True
+            if cur.children[i] is None:
+                cur.children[i]= Node()
+            cur =cur.children[i]
+        cur.eof=True
 
+    def search(self, word):
+        def helper(index,node):
+            cur = node
+            for i in range(index, len(word)):
+                c=word[i]
+                if c==".":
+                    for child in cur.children:
+                        if child and helper(i+1, child):
+                            return True
+                    return False
+                else:
+                    idx = ord(c)-ord("a")
+                    if cur.children[idx] is None:
+                        return False
+                    cur = cur.children[idx]
+            return cur.eof
 
-trie = Trie()
-arr = ["and", "ant", "do", "dad"]
-for s in arr:
-    trie.insert(s)
-
-
-searchKeys = ["do", "gee", "bat"]
-for s in searchKeys:
-    if trie.search(s):
-        print("true", end= " ")
-    else:
-        print("false", end=" ")
-
-
-print()
-prefixKeys = ["ge", "ba", "do", "de"]
-for s in prefixKeys:
-    if trie.prefix(s):
-        print("true", end = " ")
-    else:
-        print("false", end = " ")
-
+        return helper(0, self.root)
+wordDictionary = WordDictionary()
+wordDictionary.addWord("day")
+wordDictionary.addWord("bay")
+wordDictionary.addWord("may")
+print(wordDictionary.search("say"))
+print(wordDictionary.search("day"))
+print(wordDictionary.search(".ay"))
+print(wordDictionary.search("b.."))

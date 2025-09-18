@@ -21,6 +21,8 @@ Input: adjList = [[2],[1,3],[2]]
 Output: [[2],[1,3],[2]]"""
 
 from typing import Optional
+from collections import deque
+
 
 class Node:
     def __init__(self, val = 0, neighbors = None):
@@ -28,7 +30,25 @@ class Node:
         self.neighbors = neighbors if neighbors is not None else []
 
 class Solution:
-    def cloneGraph(self, node):
+    # bfs
+    def cloneGraph(self,node):
+        if not node:
+            return None
+        map={}
+
+        map[node]=Node(node.val)
+        q = deque([node])
+
+        while q:
+            cur = q.popleft()
+            for nei in cur.neighbors:
+                if nei not in map:
+                    map[nei]=Node(nei.val)
+                    q.append(nei)
+                map[cur].neighbors.append(map[nei])
+        return map[node]
+
+    def cloneGraph_dfs(self, node):
         OldtoNew = {}
 
         def dfs(node):
@@ -53,7 +73,6 @@ node2.neighbors = [node1, node3]
 node3.neighbors = [node2]
 
 def print_graph(node):
-    from collections import deque
     visited = set()
     queue = deque([node])
     result = []

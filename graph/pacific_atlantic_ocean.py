@@ -22,3 +22,41 @@ Example 2:
 Input: heights = [[1],[1]]
 
 Output: [[0,0],[0,1]]"""
+
+
+class Solution:
+  def pacificAtlantic(self, heights) :
+    rows , cols = len(heights), len(heights[0])
+    pac, alt = set(), set()
+    def dfs(r,c,visit,prevheight):
+      if ((r,c) in visit or r<0 or c<0 or r==rows or c==cols or heights[r][c]<prevheight):
+        return
+      visit.add((r,c))
+      dfs(r+1, c, visit, heights[r][c])
+      dfs(r-1, c, visit, heights[r][c])
+      dfs(r, c+1, visit, heights[r][c])
+      dfs(r, c-1, visit, heights[r][c])
+      
+            
+
+    for c in range(cols):
+        dfs(0,c, pac,heights[0][c])
+        dfs(rows-1, c, alt, heights[rows-1][c])
+
+    for r in range(rows):
+        dfs(0,c, pac,heights[r][0])
+        dfs(r, cols-1, alt, heights[r][c])
+
+    res=[]
+    for r in range(rows):
+       for c in range(cols):
+          if (r,c) in pac and (r,c ) in alt:
+             res.append([r,c])
+    return res
+a= Solution()
+heights = [
+  [4,2,7,3,4],
+  [7,4,6,4,7],
+  [6,3,5,3,6]
+]
+print(a.pacificAtlantic(heights))
